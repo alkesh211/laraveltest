@@ -20,5 +20,4 @@ Route::get('/', function () {
 
 Route::resource('items', ItemController::class);
 
-//Route::get('next',ItemController::class, 'del');
 Route::post('next', [ItemController::class, 'del'])->name('next.del');

@@ -108,17 +108,7 @@ class ItemController extends Controller
     {   
         $data = $request->id;
         $final = explode(", ",$data);
-        // print_r($final);
-        // //exit;
-
-        // $items = Item::orderBy('id','desc')->get()->Pluck('id')->toArray();
-        // print_r($items);
-        // $x = array_diff($final, $items);
-        // print_r($x);
-        // exit;
-        //$item->delete();
         Item::WhereNotIn('id',$final)->delete();
         return response()->json(['status' => 'success'], 200);
-        //return redirect()->route('items.index')->with('success','Item has been deleted successfully');
     }
 }
